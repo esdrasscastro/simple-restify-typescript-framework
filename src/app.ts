@@ -1,7 +1,7 @@
 import { Request, Response } from 'restify'
-import Server from './bin/Server'
-import config from './config'
-import Factory from './bin/Factory'
+import config from '@config/index'
+import Server from '@binaries/Server'
+import Factory from '@binaries/Factory'
 
 Server.get('/', (req: Request, res: Response) => {
   res.send(200, 'Aplicação ALM está rodando')

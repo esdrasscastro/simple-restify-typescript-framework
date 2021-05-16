@@ -1,5 +1,5 @@
-import config from '../config'
-import server from './Server'
+import config from '@config/index'
+import server from '@binaries/Server'
 import Path from 'path'
 import glob from 'glob'
 import { Request, Response, Next } from 'restify'
