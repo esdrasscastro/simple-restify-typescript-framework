@@ -8,13 +8,13 @@ Server.get('/', (req: Request, res: Response) => {
 })
 
 Server.listen(process.env.PORT, () => {
+  Factory.loadModules()
+
   console.info(
     '> O \x1b[33m%s\x1b[0m está rodando no ambiente \x1b[33m%s\x1b[0m e porta \x1b[33m%d\x1b[0m',
     config.APP_NAME,
     config.NODE_ENV,
     config.PORT)
-
-  Factory.loadModules()
 })
 
 // Finaliza a aplicação e todos os seus processos e conexões

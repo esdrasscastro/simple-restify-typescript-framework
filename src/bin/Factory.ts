@@ -14,13 +14,15 @@ export default new class Factory {
      */
     loadModules = (): void => {
       try {
-        const route = `${this.Config.rootPath}/modules/**/route.ts`
+        const route = `${this.Config.rootPath}/modules/**/route.*s`
         glob.sync(route)
           .forEach((file) => {
             require(Path.resolve(file))
+
             file = file.replace(`${this.Config.rootPath}/modules/`, '')
-            file = file.replace('/route.ts', '')
-            console.log('O módulo \x1b[33m%s\x1b[0m foi carregado', file)
+            file = file.replace(/\/route.(ts|js)/g, '')
+
+            console.info('As rotas do módulo \x1b[33m%s\x1b[0m foram carregadas', file)
           })
       } catch (error) {
         console.error(error)
