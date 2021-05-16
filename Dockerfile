@@ -2,13 +2,13 @@ FROM node:15
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY ./dist ./
 
-RUN npm install
+# RUN npm install
 # RUN npm ci --only=production
 
-COPY . .
+# COPY . .
 
 EXPOSE 8090
 
-CMD [ "node", "dist/index.js" ]
+CMD [ "node", "dist/app.js" ]
