@@ -1,8 +1,8 @@
 import Factory from '@binaries/Factory'
 import Example from '@modules/example/Example'
 
-Factory.get('/example', Example)
-Factory.post('/example', Example, 'teste')
+Factory.getCustom('/example-custom', Example)
 
-/* Factory.post('/example', Example)
-Factory.get('/example', Example, 'teste') */
+Factory.get('/example', [], Factory.build(Example, 'example'))
+
+Factory.get('/example-2', [], (new Example().exampleTest))

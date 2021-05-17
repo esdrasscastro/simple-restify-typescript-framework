@@ -1,5 +1,5 @@
 export default class Defect {
-    subject!: Number; // numero que representa um assunto. Exemplo: 1025 - Portal Oi
+    subject!: number; // numero que representa um assunto. Exemplo: 1025 - Portal Oi
     project!: string;
     hasLinkage!: boolean;
     productionReproducible!: boolean;
@@ -15,7 +15,7 @@ export default class Defect {
     environment!: string;
     defectToAudit!: string;
     modified!: Date;
-    solutionTime!: Number; // em dias
+    solutionTime!: number; // em dias
     closedInVersion!: string;
     fase!: string; // TI, TRG ...
     detectedOnTheDay!: Date;
@@ -25,21 +25,21 @@ export default class Defect {
     detectedBy!: string;
     detectedOnRelease!: string;
     detectedInVersion!: string;
-    estimatedFixTime!: Number;
+    estimatedFixTime!: number;
     sentTo!: string;
     status!: string;
     targetCycle!: string;
     testCaseSystem!: string;
     errorNature!: string;
     errorOrigin!: string;
-    recidivismAmount!: Number;
+    recidivismAmount!: number;
     forwardFor!: string;
-    impactedCTAmount!: Number;
+    impactedCTAmount!: number;
     defectParent!: string;
-    timeToResolution!: Number; // em hora
+    timeToResolution!: number; // em hora
     auditableDefect!: boolean;
     purgedDefect!: boolean;
     defectDescription!: string;
     devComments!: string;
-    defectID!: Number;
+    defectID!: number;
 }

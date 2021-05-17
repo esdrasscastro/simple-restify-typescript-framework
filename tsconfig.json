@@ -22,7 +22,8 @@
         "paths": {
             "@config/*": ["./src/config/*"],
             "@modules/*": ["./src/modules/*"],
-            "@binaries/*": ["./src/bin/*"]
+            "@binaries/*": ["./src/bin/*"],
+            "@commons/*": ["./src/commons/*"]
         }
     },
     "include": [

@@ -17,7 +17,8 @@ module.exports = {
         alias: {
           '@modules': './src/modules',
           '@binaries': './src/bin',
-          '@config': './src/config'
+          '@config': './src/config',
+          '@commons': './src/commons'
         }
       }
     ]
