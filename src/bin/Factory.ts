@@ -35,10 +35,11 @@ export default new class Factory {
      * @param method Nome do método a ser executado da classe instanciada
      * @returns Função da classe
      */
-    build = (ClassName, method: string) => {
+    build = (ClassName: Object, method: string) => {
       return (req: Request, res: Response, next: Next) => {
-        const obj = new ClassName()
-        return obj[method](req, res, next)
+        let className = Object.assign(ClassName);
+        className = new className();
+        return className[method](req, res, next)
       }
     }
 
@@ -49,7 +50,7 @@ export default new class Factory {
      * @param ClassName Import da classe a ser executada
      * @param method Nome do método a ser executado na classe
      */
-    get = (path: string | RegExp, ClassName, method?: string): void => {
+    get = (path: string | RegExp, ClassName: Object, method?: string): void => {
       this.fetch('get', path, ClassName, method)
     }
 
@@ -60,11 +61,11 @@ export default new class Factory {
      * @param ClassName Import da classe a ser executada
      * @param method Nome do método a ser executado na classe
      */
-     post = (path: string | RegExp, ClassName, method?: string): void => {
+     post = (path: string | RegExp, ClassName: Object, method?: string): void => {
        this.fetch('post', path, ClassName, method)
      }
 
-     private fetch = (httpMethod = 'get', path: string | RegExp, ClassName, method?: string): void => {
+     private fetch = (httpMethod = 'get', path: string | RegExp, ClassName: Object, method?: string): void => {
        if (!method) method = 'init'
        this.Server[httpMethod](path, this.build(ClassName, method))
      }
