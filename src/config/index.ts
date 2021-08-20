@@ -8,7 +8,7 @@ if (envConfig.error) {
 }
 
 // carrega o arquivo de configuração conforme a variavel NODE_ENV.
-const env = process.env.NODE_ENV || 'dev'
+const env = process.env.NODE_ENV || 'development'
 
 const path = Path.dirname(__filename)
 const rootPath = Path.dirname(Path.dirname(__filename))
