@@ -1,3 +1,6 @@
 node_modules
 dist
 *-lock.json
+.vscode
+coverage
+.vs
