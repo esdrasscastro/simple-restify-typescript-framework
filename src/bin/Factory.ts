@@ -4,6 +4,7 @@ import server from '@binaries/Server'
 import Path from 'path'
 import glob from 'glob'
 import { Request, Response, Next, Server, RequestHandlerType } from 'restify'
+import { Logger } from '@helpers/Logger'
 
 export default new class Factory {
     Config = config;
@@ -14,16 +15,16 @@ export default new class Factory {
      * Carrega as rotas que se encontra na pasta modules
      */
     loadModules = (): void => {
-      const route = `${this.Config.rootPath}/modules/**/route.*s`
+      const route = `${this.Config.ROOT_PATH}/modules/**/route.*s`
       glob.sync(route)
         .forEach((file) => {
           require(Path.resolve(file))
           this.modulesImported += 1
 
-          file = file.replace(`${this.Config.rootPath}/modules/`, '')
+          file = file.replace(`${this.Config.ROOT_PATH}/modules/`, '')
           file = file.replace(/\/route.(ts|js)/g, '')
 
-          console.info('As rotas do módulo \x1b[33m%s\x1b[0m foram carregadas', file)
+          Logger.info('As rotas do módulo \x1b[33m%s\x1b[0m foram carregadas', file)
         })
     }
 

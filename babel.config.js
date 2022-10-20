@@ -18,7 +18,10 @@ module.exports = {
           '@modules': './src/modules',
           '@binaries': './src/bin',
           '@config': './src/config',
-          '@commons': './src/commons'
+          '@commons': './src/commons',
+          '@interfaces': './src/interfaces',
+          '@errors': './src/errors',
+          '@helpers': './src/helper'
         }
       }
     ]

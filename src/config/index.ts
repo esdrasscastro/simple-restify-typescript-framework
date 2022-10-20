@@ -1,23 +1,11 @@
-import dotenv from 'dotenv'
 import Path from 'path'
 
-const envConfig = dotenv.config()
+import CustomEnv from 'custom-env'
+CustomEnv.env(true)
 
-if (envConfig.error) {
-  throw envConfig.error
-}
-
-// carrega o arquivo de configuração conforme a variavel NODE_ENV.
-const env = process.env.NODE_ENV || 'development'
-
-const path = Path.dirname(__filename)
 const rootPath = Path.dirname(Path.dirname(__filename))
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const config = require(`${path}/env/${env}.json`)
-config.rootPath = rootPath
+process.env.ROOT_PATH = rootPath
 
 export default {
   ...process.env,
-  ...config
 }
